@@ -2,14 +2,14 @@
 
 int main(void)
 {
-  int square_number = 0; // 반드시 초기화 해주기
-  int result_of_square_number = 0;
+   int square_number = 0; // 반드시 초기화 해주기
+   int result_of_square_number = 0;
   
-  printf("enter the number that you want to square");
-  scanf("%d", &square_number); // &를 사용하는 이유는 scanf의 두번째 매개변수가 포인터 변수형만 입력받기 때문이다.  
+   printf("enter the number that you want to square");
+   scanf("%d", &square_number); // &를 사용하는 이유는 scanf의 두번째 매개변수가 포인터 변수형만 입력받기 때문이다.  
   
-  result_of_square_number = square_number * square_number;
-  printf("square of %d is &d", square_number, result_of_square_number);
+   result_of_square_number = square_number * square_number;
+   printf("square of %d is &d", square_number, result_of_square_number);
  
-  return 0;
+   return 0;
 }
