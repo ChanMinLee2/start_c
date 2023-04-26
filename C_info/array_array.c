@@ -18,9 +18,13 @@ int main(void)
             {
                 c++;
             }
+            if (c == ('Z' + 1))
+            {
+                c = 'a';
+            }
+            
 
-            array[i][j] = c;
-            c++;
+            array[i][j] = c++;
 
             if((c) == 'z')
             {
