@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void swap(char ** index1, char ** index2)
 {
@@ -14,9 +15,12 @@ int main(int argc, char *argv[])
     {
         for(int i = index; i < argc; i++)
         {
-            if(strcmp(argv[i][0],argv[i+1][0]) > 0)
-                swap(argv[i],argv[i+1]);
+            if(strcmp(&argv[i],&argv[i+1]) > 0)
+                swap(&argv[i],&argv[i+1]);
         }
         index++;
     }
-}
+
+    
+
+

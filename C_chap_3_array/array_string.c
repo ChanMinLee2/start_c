@@ -2,6 +2,7 @@
 
 int main(void)
 {
+    // 선언된 문자열
     char array_string[] = {"hello world!"}; // 배열의 크기를 정하지 않고 초기화 시 알아서 크기를 정한다.
 
     printf("size of array : %d\n", sizeof(array_string));
@@ -12,4 +13,5 @@ int main(void)
     printf("changed string : %s\n", array_string);
 
     return 0; 
+
 }
