@@ -29,5 +29,8 @@ int main(void)
         printf("%d", array3[i]);
     printf("\n");
 
+    // 배열의 count를 구하는 방법. - 주로 배열보다는 포인터로 선언했을때 사용한다.
+    int count_of_array2 = sizeof(array2)/sizeof(int); // 몇 개 있는지 확인 가능.
+    printf("count of array2 : %d\n", count_of_array2);
     return 0;
 }
