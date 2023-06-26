@@ -25,9 +25,9 @@ int main(void)
     int * p2 = &num2;
 
     swap_by_value(p1, p2);
-    printf("%d %d\n",p1,p2);
+    printf("%d %d\n",*p1,*p2);
     swap_by_ref(&p1, &p2);
-    printf("%d %d\n",p1,p2);
+    printf("%d %d\n",*p1,*p2);
     
 
     return 0;
