@@ -11,7 +11,7 @@ int swap_by_value(int* p1, int* p2)
 // 이 함수는 포인터 변수의 주소값(실제 위치)을 복사해서 스왑을 진행하기 때문에 실제로 바뀜. - 포인터 변수의 주소값 : &(포인터변수)
 int swap_by_ref(int ** p1, int ** p2)
 {
-    int ** temp = *p1;    //이 함수의 p1 == &p1 --> *p1 == p1
+    int * temp = *p1;    //이 함수의 p1 == &p1 --> *p1 == p1
     *p1 = *p2;
     *p2 = *p1;
 }
