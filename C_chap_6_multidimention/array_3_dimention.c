@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    int mean;
+    int mean = 0;
     int students[3][3][2] = {
         {
             {90, 95}, // A반의 a학생
@@ -23,8 +23,9 @@ int main(void)
 
     for (int i = 0; i < 3; i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < 2; j++)
         {
+            printf("%d\n", students[0][i][j] );
             mean += students[0][i][j];
         }
     }
