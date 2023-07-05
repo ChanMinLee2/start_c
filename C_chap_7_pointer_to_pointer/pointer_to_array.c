@@ -37,7 +37,6 @@ int main(void)
     printf(" %d %d \n", whoB[0], whoB[1]);
     
     // 포인터 변수가 구조체나 다른포인터변수, 배열을 가리킬 때는 포인터 변수(*를 사용하지 않는)로 그에 대한 접근이 가능하다. 
-
     add_array2d(arr2d, 2);
 
     return 0;
