@@ -11,8 +11,8 @@ int main(void)
         return -1;
     }
 
-    int ch;
-    while ((ch = fgetc(fp) ) != EOF)
+    int ch; // fgetc로 받아올 문자버퍼 선언
+    while ((ch = fgetc(fp) ) != EOF) // fgetc는 입력 실패시 EOF반환함. 
     {
         fputc(ch, fp2);
     }
