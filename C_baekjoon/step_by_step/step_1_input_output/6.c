@@ -2,10 +2,8 @@
 
 int main(void)
 {
-    char *a;
-    scanf("%s", a);
-
-    printf("%s\?\?\!", a);
-
+    
+    printf(" good_read \n");
+    
     return 0;
 }
