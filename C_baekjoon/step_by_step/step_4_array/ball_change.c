@@ -26,4 +26,8 @@ int main(void)
         printf("%d ", array[j]);
     }
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 71e9c5c71704b9d0998e3e9529682dde61bb055e
