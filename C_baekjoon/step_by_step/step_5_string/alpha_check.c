@@ -14,9 +14,9 @@ int main(void)
     
     for(int i = 0; i < strlen(temp)-1; i++)
     {
-        // -61(`) 빼기
+        // -61('a') 빼기 - index로 이용하기 위해서는 a를 빼줘야함
         char cbuf = temp[i];
-        int ibuf = (int)(cbuf - '`');
+        int ibuf = (int)(cbuf - 'a');
         if(alphacount[ibuf] == -1)
         {
             alphacount[ibuf] = i;
