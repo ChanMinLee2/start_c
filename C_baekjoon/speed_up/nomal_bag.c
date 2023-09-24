@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define MAX 100
-
+// 다이나믹 프로그래밍 활용하기
 typedef struct things things;
 struct things
 {
