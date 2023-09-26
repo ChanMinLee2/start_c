@@ -6,6 +6,8 @@
 // 2차 시도 실패 - getchar 반복 중 문제 찾음 - 조건 '\n'으로 수정, 루프 탈출 시의 마지막 단어 wordcount에 반영안되는 점 수정
 // 90퍼 언저리 실패 - 예외적인 특이 케이스가 있을 거라 추정됨.  
 
+// 3차 시도 성공 - 특이 케이스 : 공백만 입력되는 경우 - 첫 입력 if문에서 bufmemory에 저장안해서 카운팅되버림. 
+
 int main(void)
 {
     int wordcount = 0;
@@ -23,6 +25,7 @@ int main(void)
         {
             readcount++;
             first_memory = cbuf;
+            buf_memory = cbuf;
             continue;
         }
             
