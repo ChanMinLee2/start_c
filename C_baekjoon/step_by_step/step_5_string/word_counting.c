@@ -8,6 +8,7 @@
 
 // 3차 시도 성공 - 특이 케이스 : 공백만 입력되는 경우 - 첫 입력 if문에서 bufmemory에 저장안해서 카운팅되버림. 
 
+// 기억할 점 : 문자열 입력 getchar로 할 때 '\n'을 끝점으로 생각 // 이미 받아진 문자열은 '\0'을 끝점으로 생각
 int main(void)
 {
     int wordcount = 0;
@@ -17,7 +18,7 @@ int main(void)
     char first_memory;
     char cbuf;
     
-    while((cbuf = getchar()) != '\n')
+    while((cbuf = getchar()) != '\n') 
     {
         // cbuf = getchar();
         
