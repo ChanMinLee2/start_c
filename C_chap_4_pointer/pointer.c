@@ -2,6 +2,8 @@
 
 int main(void)
 {
+    // 포인터 변수를 사용하는 경우 : 주소값 핸들링이 필요할 때 - 즉 함수 파라미터로 원래 데이터 변경할 때 주로 사용 
+
     int num = 10;
     // pointer 변수 pointer_num에 num의 주소값 저장
     int * pointer_num = &num; 
