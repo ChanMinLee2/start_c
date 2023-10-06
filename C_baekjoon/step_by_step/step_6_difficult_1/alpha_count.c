@@ -2,6 +2,8 @@
 
 // 1차 시도 실패 - ascii 배열에는 정상적으로 카운트 되어서 들어갔음. 그 이후로 most check가 안됨. 
 
+// 2차 시도 실패 - 1차 실패 이유는 i = 0라는 잘못된 루프조건때문 조심. 46퍼에서 실패 : 예외 상황 있는듯 조건 다시 확인 
+
 int main(void)
 {
     char buf;
@@ -18,45 +20,49 @@ int main(void)
     
     while((buf = getchar()) != '\n')
     {
-        printf("scan buf : %c\n", buf);
+        //printf("scan buf : %c\n", buf);
         
         if(buf >= 97)
             buf -= 97;
         else
             buf -= 65;
         
-        printf("minus process, buf : %d\n", buf);
+        //printf("minus process, buf : %d\n", buf);
         ascii[buf]++;
     }
     
     // check 
     //for(int k = 0; k < 26; k++)
     //{
-    //    printf("%d\n", ascii[k]);
+        //printf("%d %d\n", k, ascii[k]);
     //}
     
     for(int i = 0; i < 26; i++)
     {
-        if(i = 0)
+        //printf("po %d \n", i);
+        
+        if(i == 0)
         {
             most_count = ascii[i];
             most_alpha = i + 65;
+            continue;
         }
             
         else
         {
-            if(ascii[i] > most_count)
+            //printf("good into\n");
+            if(ascii[i] != 0 && ascii[i] > most_count)
             {
                 most_count = ascii[i];
                 most_alpha = i + 65;
             }
-                
-            else if( ascii[i] == most_count && ascii[i] != 0)
+            
+            else if( ascii[i] != 0 && ascii[i] == most_count)
             {
                 most_alpha = '?';
                 break;
-            }
-        }   
+            }  
+        }
     }
     
     printf("%c", most_alpha);
