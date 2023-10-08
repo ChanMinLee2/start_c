@@ -4,11 +4,15 @@
 
 // 2차 시도 실패 - 1차 실패 이유는 i = 0라는 잘못된 루프조건때문 조심. 46퍼에서 실패 : 예외 상황 있는듯 조건 다시 확인 
 
+// 3차 시도 성공 - 내부 루프 중 most count 같을 때 break 시켜버려서 그 이후에 더 큰 count가 생기는 상황 못읽음. 수정 후 성공
+
+#include <stdio.h>
+
 int main(void)
 {
     char buf;
     char most_alpha;
-    int most_count;
+    int most_count = 0;
     int most_set_count = 0;
     
     int ascii[26];
@@ -60,7 +64,7 @@ int main(void)
             else if( ascii[i] != 0 && ascii[i] == most_count)
             {
                 most_alpha = '?';
-                break;
+                continue;
             }  
         }
     }
