@@ -1,5 +1,7 @@
 // 첫 시도 구조만 잡아놓음
-
+// check 함수로 매번 입력마다 단어를 넘겨서 검사함. 
+// 검사하는 논리 : 각 알파벳별로 0 원소 가지는 배열 선언, 단어 받아서 첫문자부터 검사 
+// 검사하는 포인터를 두개 사용 해서 현재 포인터가 이미 검사한 알파벳인지 처음 검사하고 아니라면 이전 알파벳과 같은지까지 조사 후 포인터 업데이트
 
 #include <stdio.h>
 #include <string.h>
@@ -26,6 +28,7 @@ int check_group_word(char * buf, int buf_len) // 맞으면 1 아니면 0
         {
             return 0;
         }
+        check_prev = check_curr;
     }
     
     return 1;
