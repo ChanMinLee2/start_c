@@ -3,6 +3,8 @@
 // 검사하는 논리 : 각 알파벳별로 0 원소 가지는 배열 선언, 단어 받아서 첫문자부터 검사 
 // 검사하는 포인터를 두개 사용 해서 현재 포인터가 이미 검사한 알파벳인지 처음 검사하고 아니라면 이전 알파벳과 같은지까지 조사 후 포인터 업데이트
 
+// 두 번째 시도 성공 - prev와 curr 초기화 
+
 #include <stdio.h>
 #include <string.h>
 
@@ -14,8 +16,8 @@ int check_group_word(char * buf, int buf_len) // 맞으면 1 아니면 0
         checker[i] = 0;
     }
 
-    char check_curr;
-    char check_prev;
+    char check_curr = ' ';
+    char check_prev = ' ';
     for(int i = 0; i < buf_len; i++)
     {
         check_curr = buf[i];
@@ -51,3 +53,4 @@ int main()
     printf("%d", group_word_num);
     
 }
+
