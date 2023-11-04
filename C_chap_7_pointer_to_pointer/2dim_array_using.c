@@ -7,13 +7,13 @@ int main(void)
         {3, 4}
     };
 
-    int arr1[3][2] = {
+    int arr2[3][2] = {
         {1, 2},
         {3, 4},
         {5, 6}
     };
 
-    int arr1[4][2] = {
+    int arr3[4][2] = {
         {1, 2},
         {3, 4},
         {5, 6},
@@ -25,7 +25,9 @@ int main(void)
     ptr = arr1;
     for (int i = 0; i < sizeof(arr1[0])/sizeof(int); i++)
     {
-        printf(" %d's line of arr1 : %d %d \n", i+1, arr1[0][1])
+        printf(" %d's line of arr1 : %d %d \n", i+1, arr1[0][1]);
     }
+
+    printf("%d %d", &arr1[0], arr1[0]);
     
 }
