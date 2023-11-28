@@ -1,5 +1,5 @@
 // 1차 시도 실패 : 3퍼센트 실패 반례 찾아야 함... 
-// 이해 불가 - 질문 게시판 글씀... 
+// 이해 불가 - 질문 게시판 글씀... -> 변수 초기화할때 겹쳐서 하지말자! -> tip에 추가하자.
 #include <stdio.h>
 
 int main()
@@ -9,7 +9,8 @@ int main()
     scanf("%d", &start);
     scanf("%d", &end);
     
-    int sum, min = 0;
+    int sum = 0;
+    int min = 0;
     
     for (int i = start; i < end+1; i++) {
         if(i == 1)
