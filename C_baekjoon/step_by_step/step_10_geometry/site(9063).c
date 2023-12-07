@@ -1,5 +1,6 @@
 // 1차 시도 실패 : 예시 1번부터 틀림 아마 로직이 틀린듯 재점검 ㄱ
 // 2차 시도 실패 : count 1, 2일때 각각 로직 추가. 그런데 94퍼 실패함. 
+// 3차 시도 성공 : count 1일때 종료조건 없었음.
 
 #include <stdio.h>
 
@@ -20,6 +21,7 @@ int main()
     if(count == 1)
     {
         printf("%d", 0);
+        return 0;
     }
     
     for (int i = 0; i < count; i++) {
