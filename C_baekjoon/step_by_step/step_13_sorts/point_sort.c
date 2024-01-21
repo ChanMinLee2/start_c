@@ -1,4 +1,5 @@
 // 1차 시도 실패 : 마지막 원소의 교환이 일어나지 않음... 이유 찾기 
+// 2차 시도 성공 : 마지막 원소
 #include <stdio.h>
 
 void merge_x(int * arr, int * arr2, int s, int m, int e)
@@ -165,7 +166,7 @@ int main()
             // 이 케이스 문제 
             if(i == count-1)
             {
-                merge_sort_y(x_arr, y_arr, i - count_of_x+1, i);
+                merge_sort_y(x_arr, y_arr, i - count_of_x, i);
                 break;
             }
             count_of_x++;
@@ -173,8 +174,11 @@ int main()
         
         else 
         {
-            merge_sort_y(x_arr, y_arr, i - count_of_x, i-1);
-            count_of_x = 0;
+            if(count_of_x != 1)
+                merge_sort_y(x_arr, y_arr, i - count_of_x, i-1);
+            // 여기가 틀렸었음... i에서 i-1의 정렬필요유무를 파악하기 떄문에 이 케이스에서도 count_of_x를 1로, buf값도 업데이트 해줘야함. 
+            count_of_x = 1;
+            x_buf = x_arr[i];
         }
     }
     
