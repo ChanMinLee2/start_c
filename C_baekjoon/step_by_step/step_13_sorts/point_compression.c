@@ -1,5 +1,10 @@
-// 1차 시도 실패 : 자동종료됨. x, y정렬 잘 일어나는지 디버깅해봐야함. 
+// 1차 시도 실패 : 자동종료됨. x, y정렬 잘 일어나는지 디버깅해봐야함.
+// 2차 시도 성공 : 일반 배열의 최대범위는 100000까지. 즉 1. 전역변수(1억까지는 ㄱㄴ)나 동적할당으로 그 이상의 배열을 선언하여 해결하면 됨.  
 #include <stdio.h>
+
+int numbers[1000000];
+int numbers_result[1000000];
+int order[1000000];
 
 void merge_x(int * arr, int * arr2, int s, int m, int e)
 {
@@ -135,10 +140,9 @@ void merge_sort_y(int * arr, int * arr2, int s, int e)
 
 int main()
 {
-    int order[1000000];
+    
     int count = 0;
-    int numbers[1000000];
-    int numbers_result[1000000];
+    
     
     scanf("%d", &count);
     
@@ -148,7 +152,7 @@ int main()
     }
     
     // number 기준으로 정렬 후 값 재정의( 좌표 압축 ) 
-    merge_sort_x(numbers, order, 0 ,count);
+    merge_sort_x(numbers, order, 0 ,count-1);
     int buf = 0; // -10억 부터 10억까지 초기값으로 설정 불가
     int value = 0; // 숫자들 값 0부터 차례로 재설정
     for (int i = 0; i < count; i++) {
@@ -174,10 +178,11 @@ int main()
         }
     }
     // order 기준으로 재정렬 ( 출력 용이성 )
-    merge_sort_y(numbers_result, order, 0, count);
+    merge_sort_y(numbers_result, order, 0, count-1);
     
     
     for (int i = 0; i < count; i++) {
         printf("%d ", numbers_result[i]);
     }
 }
+
