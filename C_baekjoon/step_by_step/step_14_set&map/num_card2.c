@@ -108,15 +108,14 @@ int main()
     merge_sort(my_cards, 0, my_count-1);
     
     int none = 10000001;
-    int progress = -1;
+    int last_index = my_count-1;
     // 수정하기
     for (int i = 0; i < given_count; i++) {
         int flag = binary_search(my_cards, given_cards[i],0, given_count);
         if(flag != -1)
         {
-            progress++;
-            my_cards[flag] = my_cards[my_count-1 - progress];
-            my_cards[my_count-1 - progress] = none;
+            my_cards[flag] = my_cards[last_index];
+            my_cards[last_index] = none;
             result[i]++;
             i--;
             continue;
