@@ -1,4 +1,6 @@
 // 1차시도 실패 : 일부 케이스 오류 - for문 수정해보기.
+// 2차시도 실패 : for 문 매개변수 수정 후 마찬가지 실패. 로직 확인하기 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -106,18 +108,24 @@ int main()
     }
 
     merge_sort(my_cards, 0, my_count-1);
+    printf("check ");
+    for (int i = 0; i < my_count; i++) {
+        printf("%d ", my_cards[i]);
+    }
+    printf("\n");
     
     int none = 10000001;
     int last_index = my_count-1;
     // 수정하기
     for (int i = 0; i < given_count; i++) {
-        int flag = binary_search(my_cards, given_cards[i],0, given_count);
+        int flag = binary_search(my_cards, given_cards[i], 0, my_count-1);
         if(flag != -1)
         {
             my_cards[flag] = my_cards[last_index];
             my_cards[last_index] = none;
             result[i]++;
             i--;
+            last_index--;
             continue;
         }
     }
