@@ -1,5 +1,6 @@
 // 1차시도 실패 : 일부 케이스 오류 - for문 수정해보기.
 // 2차시도 실패 : for 문 매개변수 수정 후 마찬가지 실패. 로직 확인하기 
+// 3차시도 실패 : merge sort 반복문 추가했는데도 실패. 시간줄여야함 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -93,6 +94,16 @@ int binary_search(int* arr, int key, int s, int e)
 
 int main()
 {
+    int* check_result = (int*)malloc(20000001 * sizeof(int));
+    
+    for (int i = 0; i < 500000; i++) {
+        my_cards[i] = 0;
+        given_cards[i] = 0;
+        result[i] = 0;
+    }
+    
+    
+    
     int my_count =0;
     scanf("%d", &my_count);
     
@@ -108,26 +119,38 @@ int main()
     }
 
     merge_sort(my_cards, 0, my_count-1);
-    printf("check ");
+    /*printf("check ");
     for (int i = 0; i < my_count; i++) {
         printf("%d ", my_cards[i]);
     }
     printf("\n");
+    */
     
-    int none = 10000001;
     int last_index = my_count-1;
     // 수정하기
-    for (int i = 0; i < given_count; i++) {
-        int flag = binary_search(my_cards, given_cards[i], 0, my_count-1);
-        if(flag != -1)
+    for (int i = 0; i < given_count;) {
+        if (i != 0 && check_result[given_cards[i]+10000000] != 0)
         {
-            my_cards[flag] = my_cards[last_index];
-            my_cards[last_index] = none;
-            result[i]++;
-            i--;
-            last_index--;
+            result[i] = check_result[given_cards[i]+10000000];
+            i++;
             continue;
         }
+        int flag = binary_search(my_cards, given_cards[i], 0, last_index);
+        if(flag != -1 && last_index >= 0)
+        {
+            for (int j = flag; j < last_index; j++) {
+                my_cards[j] = my_cards[j+1];
+            }
+            last_index--;
+            result[i]++;
+            
+        }
+        else
+        {
+            check_result[given_cards[i]+10000000] = result[i];
+            i++;
+        }
+        
     }
     
     for (int i = 0; i < given_count; i++) {
