@@ -10,6 +10,21 @@ long long nums_of_lan(long long* lans, long long index, int k) {
     return buf;
 }
 
+int largest_index(long long* lans, int k)
+{
+    long long buf = 0;
+    int index = 0;
+    for (int i = 0; i < k; i++)
+    {
+        if (buf < lans[i])
+        {
+            buf = lans[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
 int main() {
     int k, n;
     scanf("%d %d", &k, &n);
@@ -20,7 +35,7 @@ int main() {
     }
     
     long long start = 1;
-    long long end = 2147483647; // 가장 긴 랜선의 길이
+    long long end = len_of_lan[largest_index(len_of_lan, k)]; // 가장 긴 랜선의 길이
     long long buf = 0;
     
     while(start <= end) {
