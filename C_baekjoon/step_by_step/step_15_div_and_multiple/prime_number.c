@@ -3,43 +3,54 @@
 // 3. 입력 받은 범위 내 숫자 조건 맞으면 출력.
 
 // 1차시도 실패 : 80퍼 후반대 틀림... 반례 찾아보기.
+// 2차 시도 성공 : 1 1 케이스 출력 수정.
 #include <stdio.h>
-int numbers[1000001];
+#define MAX 246913 //246912 + 1
+int numbers[MAX];
 
 int main()
 {
-    
-    // 1.
-    int start, end;
-    int index = 2;
-    
-    scanf("%d %d", &start, &end);
-    
-    for (int i = 2; i < 1000001; i++) {
+
+    numbers[1] = 1;
+    for (int i = 2; i < MAX; i++) {
         numbers[i] = 0;
     }
     
-    
     // 2.
-    while(index <= end)
+    int index = 2;
+    while(index < MAX)
     {
         if(numbers[index] == 0)
         {
-            for (int i = 2; i * index <= end; i++) {
+            for (int i = 2; i * index < MAX; i++) {
                 numbers[i * index] = 1;
             }
         }
         index++;
     }
-    
-    
-    // 3.
-    for (int i = start; i <= end; i++) {
-        if(numbers[i] == 0)
+
+    while (1)
+    {
+        // 1.
+        int result = 0;
+        int start, end = 0;
+        scanf("%d", &start);
+
+        if (start == 0)
         {
-            printf("%d\n", i);
+            break;
         }
+        end = start * 2;
+
+        // 3.
+        for (int i = start; i <= end; i++) {
+            if(numbers[i] == 0)
+            {
+                result++;
+                //printf("%d\n", i);
+            }
+        }
+
+        printf("%d", result);
     }
-    
-    
 }
