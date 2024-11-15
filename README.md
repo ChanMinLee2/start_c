@@ -1,3 +1,3 @@
 # start_c
-I will uproad that i learned in c
+I will uproad code that learned in c
 ___
