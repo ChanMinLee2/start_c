@@ -1,2 +1,2 @@
 # start_c
-I will uproad code that learned in c
+I will upload code that learned in c
